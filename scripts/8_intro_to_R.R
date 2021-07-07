@@ -208,3 +208,12 @@ saveRDS(mtcars, file = "mtcars.rds")
 readRDS(file = "mtcars.rds")
 
 data <- readRDS(file = "mtcars.rds")
+
+# Exercises ---------------------------------------------------------------
+# From R4DS
+
+# 4.4, exercise 2
+# 10.5, exercise 2
+# 19.2.1, exercises 3 and 4
+# 21.2.1, exercises 1.1, 1.2, and 1.3
+# 21.3.5, exercise 3
