@@ -106,20 +106,3 @@ vip(country_rf) +
   ggtitle("Variable importance for the predictors of country") +
   xlab("Predictor") +
   ylab("Variable importance") # 678 x 410
-
-# PDP ---------------------------------------------------------------------
-
-partialPlot(country_rf, pred.data = data_test, x.var = "citizenship")
-# https://stats.stackexchange.com/questions/147763/meaning-of-y-axis-in-random-forest-partial-dependence-plot
-# negative values mean that the positive class is less likely for that value of the independent variable according to the model
-table(data_test$like_listen_classical) # positive class is "no"
-
-partialPlot(country_rf, pred.data = data_test, x.var = "age")
-rug(data_test[[7]])
-
-# ALE plot ----------------------------------------------------------------
-
-yhatf <- function(X.model, newdata) as.numeric(predict(X.model, newdata))
-
-ALEPlot(as.data.frame(data_test %>% select(-c(like_listen_country))), country_rf, pred.fun = yhatf, J = 7, K = 50, NA.plot = TRUE)
-rug(data_test[[7]])
